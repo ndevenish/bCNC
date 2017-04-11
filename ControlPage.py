@@ -641,56 +641,46 @@ class ControlFrame(CNCRibbon.PageLabelFrame):
 	#----------------------------------------------------------------------
 	def moveXup(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X%s"%(self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X%s"%(self.step.get()))
 
 	def moveXdown(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X-%s"%(self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X-%s"%(self.step.get()))
 
 	def moveYup(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0Y%s"%(self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 Y%s"%(self.step.get()))
 
 	def moveYdown(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0Y-%s"%(self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 Y-%s"%(self.step.get()))
 
 	def moveXdownYup(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X-%sY%s"%(self.step.get(),self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X-%sY%s"%(self.step.get(),self.step.get()))
 
 	def moveXupYup(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X%sY%s"%(self.step.get(),self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X%sY%s"%(self.step.get(),self.step.get()))
 
 	def moveXdownYdown(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X-%sY-%s"%(self.step.get(),self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X-%sY-%s"%(self.step.get(),self.step.get()))
 
 	def moveXupYdown(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0X%sY-%s"%(self.step.get(),self.step.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 X%sY-%s"%(self.step.get(),self.step.get()))
 
 	def moveZup(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0Z%s"%(self.zstep.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 Z%s"%(self.zstep.get()))
 
 	def moveZdown(self, event=None):
 		if event is not None and not self.acceptKey(): return
-		self.sendGCode("G91G0Z-%s"%(self.zstep.get()))
-		self.sendGCode("G90")
+		self.sendGCode("$J=F2000G91 Z-%s"%(self.zstep.get()))
 
 	def go2origin(self, event=None):
-		self.sendGCode("G90G0X0Y0Z0")
+		self.sendGCode("G90G0X0Y0Z0F2000")
 
 	#----------------------------------------------------------------------
 	def setStep(self, s, zs=None):
